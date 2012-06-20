@@ -8,7 +8,7 @@ import java.util.List;
  *
  */
 
-public class InsertionSort implements ISortAlgorithm {
+public class Bucketsort implements ISortAlgorithm {
 
 	@Override
 	public List<Integer> sort(List<Integer> list) {
