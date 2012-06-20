@@ -7,9 +7,7 @@ public interface ISortAlgorithm {
 	/**
 	 * Sorts the given List
 	 * 
-	 * @param list
-	 *            unsorted List
 	 * @return sorted List
 	 */
-	public List<Integer> sort(List<Integer> list);
+	public List<Integer> sort();
 }

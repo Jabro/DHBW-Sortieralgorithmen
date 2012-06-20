@@ -5,15 +5,22 @@ import java.util.List;
 /**
  * 
  * @author Lukas
- *
+ * 
  */
 
 public class Bucketsort implements ISortAlgorithm {
 
-	@Override
-	public List<Integer> sort(List<Integer> list) {
-		// TODO Auto-generated method stub
-		return null;
+	private List<Integer> list;
+	
+	public Bucketsort(List<Integer> list){
+		this.list = list;
 	}
+	
+	@Override
+	public List<Integer> sort() {
 
+
+
+		return list;
+	}
 }

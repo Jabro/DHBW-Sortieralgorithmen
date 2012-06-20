@@ -9,8 +9,14 @@ import java.util.List;
  */
 
 public class InsertionSort implements ISortAlgorithm {
+	
+	private List<Integer> list;
+	
+	public InsertionSort(List<Integer> list){
+		this.list = list;
+	}
 
-	public List<Integer> sort(List<Integer> list) {
+	public List<Integer> sort() {
 		for (int i = 1; i < list.size(); i++) {
 			int x = list.get(i);
 			int j = i;
