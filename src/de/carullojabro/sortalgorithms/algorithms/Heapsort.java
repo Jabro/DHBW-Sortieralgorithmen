@@ -27,7 +27,7 @@ public class Heapsort implements ISortAlgorithm {
 			r += -1;
 			sift(1, r);
 		}
-		return null;
+		return list;
 	}
 	
 	private void convertToHeap(){
@@ -39,7 +39,27 @@ public class Heapsort implements ISortAlgorithm {
 	}
 	
 	private void sift(int l, int r){
+		int i, j, x;
 		
+		i = l;
+		j = 2*i;
+		x = list.get(l);
+		
+		while (j <= r) {
+			//Suche Minimum unter Kindern
+			if ((j < r) && (list.get(j+1)<list.get(j))){
+				j += 1;
+			}
+			//ggf. mit Eltern tauschen
+			if (list.get(j)< x) {
+				list.set(i, list.get(j));
+				list.set(j, x);
+				i = j;
+				j = 2*i;
+			} else {
+				j = r+1;
+			}
+		}
 	}
 
 }

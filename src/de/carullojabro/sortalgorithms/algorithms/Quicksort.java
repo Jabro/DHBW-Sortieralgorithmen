@@ -18,8 +18,13 @@ public class Quicksort implements ISortAlgorithm {
 
 	@Override
 	public List<Integer> sort() {
-		// TODO Auto-generated method stub
-		return null;
+		int x, i, j, t;
+		
+		
+		
+		
+		
+		return list;
 	}
 
 }
