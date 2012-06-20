@@ -2,10 +2,21 @@ package de.carullojabro.sortalgorithms.algorithms;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Lukas
+ * 
+ */
+
 public class Selectionsort implements ISortAlgorithm {
 
-	@Override
-	public List<Integer> sort(List<Integer> list) {
+	private List<Integer> list;
+
+	public Selectionsort(List<Integer> list) {
+		this.list = list;
+	}
+
+	public List<Integer> sort() {
 		for (int i = 0; i < list.size() - 2; i++) {
 			int k = i;
 			for (int j = i + 1; j < list.size() - 1; j++) {
@@ -19,5 +30,4 @@ public class Selectionsort implements ISortAlgorithm {
 		}
 		return list;
 	}
-
 }

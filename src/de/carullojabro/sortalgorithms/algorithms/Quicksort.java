@@ -9,9 +9,15 @@ import java.util.List;
  */
 
 public class Quicksort implements ISortAlgorithm {
+	
+	private List<Integer> list;
+	
+	public Quicksort(List<Integer> list){
+		this.list = list;
+	}
 
 	@Override
-	public List<Integer> sort(List<Integer> list) {
+	public List<Integer> sort() {
 		// TODO Auto-generated method stub
 		return null;
 	}
