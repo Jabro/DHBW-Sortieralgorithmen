@@ -2,11 +2,6 @@
 
 bin/*
 
-# Eclipse #
-.classpath
-.project
-.settings/
-
 # Package Files #
 *.jar
 *.war
