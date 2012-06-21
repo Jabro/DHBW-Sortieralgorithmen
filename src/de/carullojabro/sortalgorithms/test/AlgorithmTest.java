@@ -2,19 +2,38 @@ package de.carullojabro.sortalgorithms.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-import de.carullojabro.sortalgorithms.algorithms.BubbleSort;
+import de.carullojabro.sortalgorithms.algorithms.Bucketsort;
 
 public class AlgorithmTest {
 	public static void main(String[] args) {
 
 		List<Integer> list = createInverseList(1000);
 		System.out.println(list.toString());
-		
-		BubbleSort bubble = new BubbleSort(list);
-		list = bubble.sort();
-		
+
+		// BubbleSort bubble = new BubbleSort(list);
+		// list = bubble.sort();
+
+		Bucketsort bucket = new Bucketsort(list);
+		list = bucket.sort();
+
 		System.out.println(list.toString());
+	}
+
+	/**
+	 * Generiert eine zufällige Liste mit werten zwischen 0-9
+	 * 
+	 * @param n
+	 *            Länge der Liste
+	 */
+	public static List<Integer> createRandomListM10(Integer n) {
+		List<Integer> list = new ArrayList<Integer>(n);
+		Random rdm = new Random();
+		for (int i = 0; i < n; i++) {
+			list.add(rdm.nextInt(10));
+		}
+		return list;
 	}
 
 	public static List<Integer> createSortedList(Integer n) {
@@ -27,7 +46,7 @@ public class AlgorithmTest {
 
 	public static List<Integer> createInverseList(Integer n) {
 		List<Integer> list = new ArrayList<Integer>(n);
-		for (int i = n-1; i >= 0; i--) {
+		for (int i = n - 1; i >= 0; i--) {
 			list.add(i);
 		}
 		return list;
