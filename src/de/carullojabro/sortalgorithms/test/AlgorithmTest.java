@@ -6,17 +6,24 @@ import java.util.List;
 import de.carullojabro.sortalgorithms.algorithms.BubbleSort;
 import de.carullojabro.sortalgorithms.algorithms.Heapsort;
 import de.carullojabro.sortalgorithms.algorithms.ISortAlgorithm;
+import de.carullojabro.sortalgorithms.algorithms.InsertionSort;
+import de.carullojabro.sortalgorithms.algorithms.Quicksort;
+import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
 
 public class AlgorithmTest {
 	public static void main(String[] args) {
 
-		List<Integer> list = createInverseList(1000);
-		System.out.println(list.toString());
+		List<Integer> list = createInverseList(100000);
+		//System.out.println(list.toString());
 		
-		BubbleSort bubble = new BubbleSort(list);
+		long start = System.currentTimeMillis();
+		
+		Quicksort bubble = new Quicksort(list);
 		list = bubble.sort();
 		
-		System.out.println(list.toString());
+		long end = System.currentTimeMillis();
+		System.out.println((end-start)+" Millisekunden");
+		//System.out.println(list.toString());
 	}
 
 	public static List<Integer> createSortedList(Integer n) {
