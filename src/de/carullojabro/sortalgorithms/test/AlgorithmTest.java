@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 import de.carullojabro.sortalgorithms.algorithms.Bucketsort;
 import de.carullojabro.sortalgorithms.algorithms.BubbleSort;
 import de.carullojabro.sortalgorithms.algorithms.Heapsort;
@@ -16,7 +15,7 @@ import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
 public class AlgorithmTest {
 	public static void main(String[] args) {
 
-		List<Integer> list = createInverseList(1000);
+		List<Integer> list = createRandomListM10(1000);
 		System.out.println(list.toString());
 
 		Bucketsort bucket = new Bucketsort(list);
