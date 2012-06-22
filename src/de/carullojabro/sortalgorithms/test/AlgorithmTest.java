@@ -16,12 +16,16 @@ import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
 public class AlgorithmTest {
 	public static void main(String[] args) {
 
-		List<Integer> list = createInverseList(1000);
+		List<Integer> list = createRandomList(10000000);
 		System.out.println(list.toString());
 
-		Bucketsort bucket = new Bucketsort(list);
+		Quicksort bucket = new Quicksort(list);
+		
+		double start = System.currentTimeMillis();
 		list = bucket.sort();
+		double end = System.currentTimeMillis();
 
+		System.out.println((end-start)/1000+" Sekunden benötigt.");
 		System.out.println(list.toString());
 	}
 
@@ -56,7 +60,12 @@ public class AlgorithmTest {
 		return list;
 	}
 
-	public static List<Integer> randomSortedList(Integer n) {
-		return null;
+	public static List<Integer> createRandomList(Integer n) {
+		Random rdm = new Random();
+		List<Integer> list = new ArrayList<Integer>(n);
+		for (int i = n - 1; i >= 0; i--) {
+			list.add(rdm.nextInt(n));
+		}
+		return list;
 	}
 }
