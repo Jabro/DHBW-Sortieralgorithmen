@@ -15,17 +15,17 @@ import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
 public class AlgorithmTest {
 	public static void main(String[] args) {
 
-		List<Integer> list = createRandomList(10000000);
+		List<Integer> list = createRandomList(100000);
 
 		System.out.println(list.toString());
 
-		Quicksort bucket = new Quicksort(list);
-		
+		InsertionSort bucket = new InsertionSort(list);
+
 		double start = System.currentTimeMillis();
 		list = bucket.sort();
 		double end = System.currentTimeMillis();
 
-		System.out.println((end-start)/1000+" Sekunden benötigt.");
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
 		System.out.println(list.toString());
 	}
 
