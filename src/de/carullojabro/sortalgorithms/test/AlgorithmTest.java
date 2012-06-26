@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import de.carullojabro.sortalgorithms.algorithms.Bucketsort;
-import de.carullojabro.sortalgorithms.algorithms.BubbleSort;
 import de.carullojabro.sortalgorithms.algorithms.Heapsort;
-import de.carullojabro.sortalgorithms.algorithms.ISortAlgorithm;
 import de.carullojabro.sortalgorithms.algorithms.InsertionSort;
 import de.carullojabro.sortalgorithms.algorithms.Quicksort;
 import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
@@ -28,19 +26,60 @@ public class AlgorithmTest {
 	 */
 	public static void main(String[] args) {
 
-		sortInsertionSort(0, 100000);
-		// List<Integer> list = createRandomList(100000);
-		//
-		// System.out.println(list.toString());
-		//
-		// InsertionSort bucket = new InsertionSort(list);
-		//
-		// double start = System.currentTimeMillis();
-		// list = bucket.sort();
-		// double end = System.currentTimeMillis();
-		//
-		// System.out.println((end - start) / 1000 + " Sekunden benötigt.");
-		// System.out.println(list.toString());
+		// sortInsertionSort(0, 100000);
+		// sortSelectionSort(0, 100000);
+		// sortBubbleSort(0, 100000);
+		// TODO shellsort noch implementieren
+		// sortHeapSort(0, 100000);
+		// sortQuickSort(0, 100000);
+		// ausgleichendes Mischen noch implementieren
+		// TODO List<Integer> list = createRandomList(100000);
+		sortBucketSort(0, 10000);
+	}
+
+	private static void sortBucketSort(int index, int n) {
+		List<Integer> list = createListBucketM10(index, n);
+		Bucketsort oSort = new Bucketsort(list);
+		double start = System.currentTimeMillis();
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+	}
+
+	private static void sortQuickSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		Quicksort oSort = new Quicksort(list);
+		double start = System.currentTimeMillis();
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+	}
+
+	private static void sortHeapSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		Heapsort oSort = new Heapsort(list);
+		double start = System.currentTimeMillis();
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+	}
+
+	private static void sortBubbleSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		Bucketsort oSort = new Bucketsort(list);
+		double start = System.currentTimeMillis();
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+	}
+
+	private static void sortSelectionSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		Selectionsort oSort = new Selectionsort(list);
+		double start = System.currentTimeMillis();
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortInsertionSort(int index, int n) {
@@ -81,12 +120,48 @@ public class AlgorithmTest {
 	 * 
 	 * @param n
 	 *            Länge der Liste
+	 * @param n2
 	 */
-	public static List<Integer> createRandomListM10(Integer n) {
+	public static List<Integer> createListBucketM10(int index, int n) {
+
 		List<Integer> list = new ArrayList<Integer>(n);
-		Random rdm = new Random();
-		for (int i = 0; i < n; i++) {
-			list.add(rdm.nextInt(10));
+		switch (index) {
+		case 0: {
+			int fill = 0;
+			for (int i = 0; i < n; i++) {
+				list.add(fill);
+				if (fill < 9) {
+					fill++;
+				} else {
+					fill = 0;
+				}
+			}
+			break;
+		}
+		case 1: {
+			int fill = 9;
+			for (int i = 0; i < n; i++) {
+				list.add(fill);
+				if (fill > 0) {
+					fill--;
+				} else {
+					fill = 9;
+				}
+			}
+			break;
+		}
+		case 2: {
+			Random rdm = new Random();
+			for (int i = 0; i < n; i++) {
+				list.add(rdm.nextInt(10));
+			}
+			break;
+		}
+
+		default: {
+			System.out.println("Kein Index übergeben");
+			break;
+		}
 		}
 		return list;
 	}

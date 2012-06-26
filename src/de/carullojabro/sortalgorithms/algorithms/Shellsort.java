@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Shellsort implements ISortAlgorithm {
 	
+	@SuppressWarnings("unused")
 	private List<Integer> list;
 	
 	public Shellsort(List<Integer> list){
