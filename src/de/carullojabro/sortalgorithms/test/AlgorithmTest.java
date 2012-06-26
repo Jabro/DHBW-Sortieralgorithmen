@@ -13,20 +13,67 @@ import de.carullojabro.sortalgorithms.algorithms.Quicksort;
 import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
 
 public class AlgorithmTest {
+
+	/**
+	 * Die jeweiligen vollautomatischen Bearbeitungsmethoden der
+	 * Unterschiedlichen Sortieralgorythmen haben zwei Parameter: Als 1. muss
+	 * ein Index mitgegeben werden, damit die Methode weiß welche Art von Liste
+	 * verwendet werden soll. <br>
+	 * 0 für eine sortierte Liste <br>
+	 * 1 für eine inverse Liste <br>
+	 * 2 für eine zufällige Liste <br>
+	 * <br>
+	 * Als 2. Parameter muss die Anzahl n der Listenelemente übergeben werden <br>
+	 * z.B. 100000
+	 */
 	public static void main(String[] args) {
 
-		List<Integer> list = createRandomList(100000);
+		sortInsertionSort(0, 100000);
+		// List<Integer> list = createRandomList(100000);
+		//
+		// System.out.println(list.toString());
+		//
+		// InsertionSort bucket = new InsertionSort(list);
+		//
+		// double start = System.currentTimeMillis();
+		// list = bucket.sort();
+		// double end = System.currentTimeMillis();
+		//
+		// System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		// System.out.println(list.toString());
+	}
 
-		System.out.println(list.toString());
-
-		InsertionSort bucket = new InsertionSort(list);
-
+	private static void sortInsertionSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		InsertionSort oSort = new InsertionSort(list);
 		double start = System.currentTimeMillis();
-		list = bucket.sort();
+		list = oSort.sort();
 		double end = System.currentTimeMillis();
-
 		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
-		System.out.println(list.toString());
+	}
+
+	private static List<Integer> createCustomList(int index, int n) {
+		List<Integer> list = null;
+		switch (index) {
+		case 0: {
+			list = createSortedList(n);
+			break;
+		}
+		case 1: {
+			list = createInverseList(n);
+			break;
+		}
+		case 2: {
+			list = createRandomList(n);
+			break;
+		}
+
+		default: {
+			System.out.println("Kein Index übergeben");
+			break;
+		}
+		}
+		return list;
 	}
 
 	/**
