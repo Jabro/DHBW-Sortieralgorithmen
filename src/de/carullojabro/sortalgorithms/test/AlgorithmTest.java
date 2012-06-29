@@ -9,6 +9,7 @@ import de.carullojabro.sortalgorithms.algorithms.Heapsort;
 import de.carullojabro.sortalgorithms.algorithms.InsertionSort;
 import de.carullojabro.sortalgorithms.algorithms.Quicksort;
 import de.carullojabro.sortalgorithms.algorithms.Selectionsort;
+import de.carullojabro.sortalgorithms.algorithms.Shellsort;
 
 public class AlgorithmTest {
 
@@ -34,7 +35,7 @@ public class AlgorithmTest {
 		// sortQuickSort(0, 100000);
 		// ausgleichendes Mischen noch implementieren
 		// TODO List<Integer> list = createRandomList(100000);
-		sortBucketSort(0, 10000);
+		sortShellSort(2, 10000);
 	}
 
 	private static void sortBucketSort(int index, int n) {
@@ -88,6 +89,17 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
+		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+	}
+
+	private static void sortShellSort(int index, int n) {
+		List<Integer> list = createCustomList(index, n);
+		Shellsort oSort = new Shellsort(list);
+		double start = System.currentTimeMillis();
+		System.out.println(list);
+		list = oSort.sort();
+		double end = System.currentTimeMillis();
+		System.out.println(list);
 		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
 	}
 
