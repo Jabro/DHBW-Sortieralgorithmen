@@ -27,7 +27,25 @@ public class AlgorithmTest {
 	 */
 	public static void main(String[] args) {
 
-		// sortInsertionSort(0, 100000);
+		sortInsertionSort(0, 1000);
+		sortInsertionSort(0, 1000);
+		sortInsertionSort(0, 1000);
+		sortInsertionSort(0, 10000);
+		sortInsertionSort(0, 10000);
+		sortInsertionSort(0, 10000);
+		sortInsertionSort(0, 100000);
+		sortInsertionSort(0, 100000);
+		sortInsertionSort(0, 100000);
+		
+		sortInsertionSort(1, 1000);
+		sortInsertionSort(1, 1000);
+		sortInsertionSort(1, 1000);
+		sortInsertionSort(1, 10000);
+		sortInsertionSort(1, 10000);
+		sortInsertionSort(1, 10000);
+		sortInsertionSort(1, 100000);
+		sortInsertionSort(1, 100000);
+		sortInsertionSort(1, 100000);
 		// sortSelectionSort(0, 100000);
 		// sortBubbleSort(0, 100000);
 		// TODO shellsort noch implementieren
@@ -35,7 +53,7 @@ public class AlgorithmTest {
 		// sortQuickSort(0, 100000);
 		// ausgleichendes Mischen noch implementieren
 		// TODO List<Integer> list = createRandomList(100000);
-		sortShellSort(2, 10000);
+		//sortShellSort(2, 10000);
 	}
 
 	private static void sortBucketSort(int index, int n) {
@@ -44,7 +62,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("BucketSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortQuickSort(int index, int n) {
@@ -53,7 +71,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("QuickSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortHeapSort(int index, int n) {
@@ -62,7 +80,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("HeapSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortBubbleSort(int index, int n) {
@@ -71,7 +89,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("BubbleSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortSelectionSort(int index, int n) {
@@ -80,7 +98,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("SelectionSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortInsertionSort(int index, int n) {
@@ -89,7 +107,7 @@ public class AlgorithmTest {
 		double start = System.currentTimeMillis();
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("InsertionSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static void sortShellSort(int index, int n) {
@@ -100,7 +118,7 @@ public class AlgorithmTest {
 		list = oSort.sort();
 		double end = System.currentTimeMillis();
 		System.out.println(list);
-		System.out.println((end - start) / 1000 + " Sekunden benötigt.");
+		System.out.println("ShellSort mit"+n+"Elementen Listenoption "+index+" "+(end - start) / 1000 + " Sekunden benötigt.");
 	}
 
 	private static List<Integer> createCustomList(int index, int n) {
